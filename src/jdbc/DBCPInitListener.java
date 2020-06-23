@@ -60,6 +60,15 @@ public class DBCPInitListener implements ServletContextListener{
 			String jdbcUrl = prop.getProperty("jdbcUrl"); // jdbcUrl의 값을 jdbcUrl에 저장
 			String username = prop.getProperty("dbUser"); // username의 값을 dbUser에 저장
 			String pw = prop.getProperty("dbPass"); // pw의 값을 dbPass에 저장
+			jdbcUrl += "&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+			//mysql 버전이 5.1.23 보다 높은 버전을 사용하면 MySQL 타임존의 시간표현 포맷이 달라져서 connector 에서 인식을 하지 못한다고 함
+			
+			/*
+			 * 해결방법이 아래와 같이 나와있는데  utf8 쓰고있으니 useUnicode 지우고 jdbcUrl 뒤에 &useJDBCCompliantTimezonShift부터 쭉 적어주니 오류 해결 
+			private static String dburl = "jdbc:mysql://localhost:3306/DB이름?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+			 									**********timezone이 안맞으니 드라이버를 com.mysql.cj.jdbc.Driver로 바꿔버림 주의 해야할듯 **********
+			*/
+			
 			
 			ConnectionFactory connFactory = new DriverManagerConnectionFactory(jdbcUrl, username, pw);
 			// prop.getProperty로 받아온 값들로 새로운 커넥션을 생성할 때 사용할 커넥션 팩토리를 생성. MySQL에 연결할때 사용할 위의 세정보를 생성자로 지정. 
@@ -85,12 +94,12 @@ public class DBCPInitListener implements ServletContextListener{
 			poolableConnFactory.setPool(connectionPool); //생성한 커넥션 풀을 연결
 			
 			Class.forName("org.apache.commons.dbcp2.PoolingDriver");// 커넥션 풀을 제공하는 JDBC 드라이버를 등록
-			PoolingDriver driver = (PoolingDriver)DriverManager.getDriver("jdbc:apache:commons:dbcp");
+			PoolingDriver driver = (PoolingDriver)DriverManager.getDriver("jdbc:apache:commons:dbcp:");
 			//PoolingDriver의 객체생성. driver이라는 변수에 지정한 JDBC의 URL(jdbc:apache:commons:dbcp)을 이해할 수 있는 드라이버를 구하여 driver에 저장
 			String poolName = prop.getProperty("poolName");// 풀의 이름으로 사용할 스트링 변수를 생성하여 poolName값을 prop.getProperty로 가져와서 저장
 			driver.registerPool(poolName, connectionPool);//풀의 이름으로 prop.getProperty가 가져오는 값을 지정해줌
 			} catch(Exception e) {
-				throw new RuntimeException(e); // 상위 메소드로 메소드 던짐
+				throw new RuntimeException("여기서 문제가 생김",e); // 상위 메소드로 메소드 던짐
 			}
 	}
 	
