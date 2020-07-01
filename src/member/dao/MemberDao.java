@@ -46,6 +46,15 @@ public class MemberDao {
 			pstmt.executeUpdate();
 		}
 	}
+	
+	public void updatePW(Connection conn, Member member)throws SQLException{
+		try(PreparedStatement pstmt = conn.prepareStatement("UPDATE members SET password=? WHERE memberid = ?")){
+			pstmt.setString(1, member.getPassword()); // 바꾸는 비밀번호
+			pstmt.setString(2, member.getId()); // WHERE문에 걸어서 조건을 맞출 값
+			pstmt.executeUpdate();
+		}
+	}
+	
 }
 
 //pstmt.setTimestamp(4, new Timestamp(member.getDate().getTime()));

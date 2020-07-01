@@ -39,6 +39,18 @@
 	</filter-mapping>
 	<!-- Encoding Filter Settings End -->
 
+	<!--  LoginCheckFilter Settings Start -->
+	<filter>
+	<filter-name>LoginCheckFilter</filter-name>
+	<filter-class>filter.LoginCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	<filter-name>LoginCheckFilter</filter-name>
+	<url-pattern>/mypage.do</url-pattern>
+	</filter-mapping>
+	<!--  LoginCheckFilter Settings End -->
+	
+	
 	<!-- ControllerUsinURI Settings Start -->
 
 	<servlet>

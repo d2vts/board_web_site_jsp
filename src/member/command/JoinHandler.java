@@ -12,7 +12,7 @@ import member.service.JoinService;
 import mvc.command.CommandHandler;
 
 public class JoinHandler implements CommandHandler { // CommandHandler 구현
-	private static final String FORM_VIEW = "/WEB-INF/view/joinForm.jsp";
+	private static final String FORM_VIEW = "/view/joinForm.jsp";
 	private JoinService joinService = new JoinService();
 
 	@Override
@@ -51,7 +51,7 @@ public class JoinHandler implements CommandHandler { // CommandHandler 구현
 		
 		try {
 			joinService.join(joinReq); //JoinService의 join()실행. 가입 처리에 성공하면 FORM_VIEW가 아닌 가입성공을 보여주는 페이지경로 리턴
-			return "/WEB-INF/view/joinSuccess.jsp";
+			return "/view/joinSuccess.jsp";
 		} catch (DuplicatedIdException e) {
 			errors.put("duplicatedId", Boolean.TRUE);// 동일한 아이디로 가입한 회원 존재하면 중복익셉션 발생해서 errors에 duplicatedID키 추가하고 폼보여주는 뷰 리턴
 			return FORM_VIEW;

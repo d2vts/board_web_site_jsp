@@ -32,6 +32,8 @@ public class Member {
 	public boolean matchPassword(String pwd) {
 		return pwd.equals(password);
 	}
-	
+	public void changePW(String NewPW) {
+		this.password = NewPW;
+	} // 비밀번호 변경 메소드
 	
 }

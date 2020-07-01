@@ -24,7 +24,7 @@ public class ControllerUsingURI extends HttpServlet { // HttpServlet 을 상속�
 		
 		String configFile = getInitParameter("configFile"); // configFile 파라미터값을 읽어옴
 		Properties prop = new Properties();// Properties 객체 생성
-		String configFilePath = getServletContext().getRealPath(configFile);// configFile 의 설정 파이리 경로를 불러옴
+		String configFilePath = getServletContext().getRealPath(configFile);// configFile 의 설정 파일 경로를 불러옴
 		try (FileReader fis = new FileReader(configFilePath)) {
 			prop.load(fis);// 설정 파일로부터 매핑 정보를 읽어와서 Properties 객체에 저장함. 
 			//Properties는 (이름, 값) 목록을 갖는 클래스임. 그래서 프로퍼티 이름을 커맨드 이름으로 사용하고 값을 클래스 이름으로 사용
