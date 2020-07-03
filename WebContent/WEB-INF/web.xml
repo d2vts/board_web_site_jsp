@@ -47,9 +47,10 @@
 	<filter-mapping>
 	<filter-name>LoginCheckFilter</filter-name>
 	<url-pattern>/mypage.do</url-pattern>
+	<url-pattern>/write.do</url-pattern>
+	
 	</filter-mapping>
 	<!--  LoginCheckFilter Settings End -->
-	
 	
 	<!-- ControllerUsinURI Settings Start -->
 
@@ -68,25 +69,6 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	<!-- ControllerUsinURI Settings End -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

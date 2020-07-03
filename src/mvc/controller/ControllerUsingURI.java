@@ -25,17 +25,42 @@ public class ControllerUsingURI extends HttpServlet { // HttpServlet 을 상속�
 		String configFile = getInitParameter("configFile"); // configFile 파라미터값을 읽어옴
 		Properties prop = new Properties();// Properties 객체 생성
 		String configFilePath = getServletContext().getRealPath(configFile);// configFile 의 설정 파일 경로를 불러옴
+		
+		//-----------------------------------------------------------------------------------------------------
+		//System.out.println("ControllerUsingURI파일에서 configFilePath : " + configFilePath);log찍음 궁금해서
+		//-----------------------------------------------------------------------------------------------------
+		/*
+		 * ControllerUsingURI파일에서 configFilePath
+		 * C:\Users\d2vts\Desktop\DEVELOPER\PORTFOLIO\JSP\_board\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\board\WEB-INF\commandHandlerURI.properties
+		 */
+		//System.out.println("fis 파일의 값은 : "+fis);
+		//fis 파일의 값은 : java.io.FileReader@3a690f90
 		try (FileReader fis = new FileReader(configFilePath)) {
-			prop.load(fis);// 설정 파일로부터 매핑 정보를 읽어와서 Properties 객체에 저장함. 
+			prop.load(fis);
+			// 설정 파일로부터 매핑 정보를 읽어와서 Properties 객체에 저장함. 
 			//Properties는 (이름, 값) 목록을 갖는 클래스임. 그래서 프로퍼티 이름을 커맨드 이름으로 사용하고 값을 클래스 이름으로 사용
 		} catch (IOException e) {
 			throw new ServletException(e);
 		}
 		Iterator keyIter = prop.keySet().iterator();//Iterator 인터페이스의 객체로 keyIter 객체 생성후 Properties에 저장되어있는 값을 keyIter에 저장
+		
+		// System.out.println("keyIter의 값은 : " + keyIter); keyIter의 값은 : java.util.Hashtable$Enumerator@6d1112eb
+		
 		//.keySet() : key값만 가져옴
 		while (keyIter.hasNext()) { //해당 이터레이션(iteration)이 다음 요소를 가지고 있으면 true를 반환하고, 더 이상 다음 요소를 가지고 있지 않으면 false를 반환. 
 			
 			String command = (String) keyIter.next(); //프로퍼티 이름을 커맨드 이름으로 사용한다.
+			
+			
+			System.out.println(" ||| 등록되어 있는 command 확인합니다 ||| " + command);
+			
+			/*
+			 ||| 등록되어 있는 command 확인합니다 ||| /changePW.do
+ 		     ||| 등록되어 있는 command 확인합니다 ||| /login.do
+ 			 ||| 등록되어 있는 command 확인합니다 ||| /join.do
+ 			 ||| 등록되어 있는 command 확인합니다 ||| /logout.do
+			*/
+			
 			String handlerClassName = prop.getProperty(command); // 커맨드 이름에 해당하는 핸들러 클래스 이름을 Properties에서 구한다.
 			try {
 				Class<?> handlerClass = Class.forName(handlerClassName); //핸들러 클래스 이름을 이용해서 Class 객체를 구한다.
