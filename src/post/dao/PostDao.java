@@ -67,13 +67,18 @@ public class PostDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			pstmt = conn.prepareStatement("SELECT * FROM jspboard order by post_id desc limit?,?");
+			pstmt = conn.prepareStatement("SELECT * FROM jspboard order by post_id desc limit ?,?");
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, size);
 			rs = pstmt.executeQuery();
 			List<PostInfo> result = new ArrayList<>();
 			while(rs.next()) result.add(rsToPostInfoObject(rs));
+			
+			//test
+			System.out.println("result = " + result);
+			
 			return result;
+			
 		}finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);

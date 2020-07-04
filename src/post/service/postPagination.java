@@ -12,7 +12,7 @@ public class postPagination {
 	private int totalPage; // 총 페이지수
 	private int startPage; // 밑에 보여질 페이지들 중 시작 페이지
 	private int endPage; // 밑에 보여질 페이지들 중 끝 페이지
-	private int pagecount = 5; // 밑에 보여질 페이지의 수
+	public int pagecount = 5; // 밑에 보여질 페이지의 수
 
 	public postPagination(int total, int currentPage, int size, List<PostInfo> content) {
 
@@ -30,6 +30,10 @@ public class postPagination {
 		}
 		startPage = currentPage / pagecount * pagecount + 1;
 		if (currentPage % 5 == 0)startPage -= pagecount;
+		
+		endPage = startPage + pagecount-1;
+		if(endPage > totalPage) endPage = totalPage;
+		
 	}
 	
 	public int getTotal() { return total;}
@@ -46,7 +50,7 @@ public class postPagination {
 		return currentPage;
 	}
 	
-	public int getTotalPages() {
+	public int getTotalPage() {
 		return totalPage;
 	}
 	
@@ -60,5 +64,9 @@ public class postPagination {
 	
 	public int getEndPage() {
 		return endPage;
+	}
+	
+	public int getPagecount() {
+		return pagecount;
 	}
 }
