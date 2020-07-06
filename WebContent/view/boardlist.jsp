@@ -26,7 +26,7 @@
 			<tr>
 				<td>${posts.postId}</td>
 				<td><a
-					href="read.do?no=${posts.postId}&pageNo=${postPaging.currentPage}"><c:out
+					href="read.do?pid=${posts.postId}&pageNo=${postPaging.currentPage}"><c:out
 							value="${posts.postTitle}" /></a></td>
 				<td>${posts.writerName}</td>
 				<td>${posts.postView}</td>

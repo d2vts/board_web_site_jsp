@@ -13,11 +13,24 @@ public class PostInfo {
 	private Date modDate;
 	private int postView;
 
+	// 파라미터 1개 생성자 = PostInfo postinfo; PostInfo 모든 변수값 
 	// 파라미터 2개 생성자 = String writerId, String postContent
 	// 파라미터 3개 생성자 = String writerId, String postTitle, String postContent
 	// 파라미터 4개 생성자 = String writerId, String writerName, String postTitle, String postContent
 	// 파라미터 7개 생성자 = String writerId, String writerName, String postTitle, String postContent, Date regDate, Date modDate, int postView
+	// 파라미터 8개 생성자 = int postId, String writerId, String writerName, String postTitle, String postContent, Date regDate, Date modDate, int postView
 	
+	public PostInfo(PostInfo postinfo) {
+		this.postId = postinfo.postId;
+		this.writerId = postinfo.writerId;
+		this.writerName = postinfo.writerName;
+		this.postContent = postinfo.postContent;
+		this.postTitle = postinfo.postTitle;
+		this.regDate = postinfo.regDate;
+		this.modDate = postinfo.modDate;
+		this.postView = postinfo.postView;
+		
+	}
 	
 	public PostInfo(String writerId, String postContent) {
 		this.writerId = writerId;
@@ -91,4 +104,6 @@ public class PostInfo {
 	public int getPostView() {
 		return postView;
 	}
+	
+	
 }
