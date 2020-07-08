@@ -55,4 +55,21 @@ public class MemberDao {
 		}
 	}
 	
+	public String MemberNameSelectById(Connection conn, String memberid)throws SQLException{
+		String memberName = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			pstmt = conn.prepareStatement("SELECT * FROM members WHERE memberid=?");
+			pstmt.setString(1, memberid);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) { memberName = rs.getString("name");}
+			return memberName;
+		}finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+	}
+	
 }

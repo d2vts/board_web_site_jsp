@@ -7,6 +7,7 @@
 <title>비밀번호 변경</title>
 </head>
 <body>
+<a href="/board/index.do">메인화면으로 가기</a>
 <form action="changePW.do" method="POST">
 <p>
 현재 비밀번호 : <input type="password" name="curPW">

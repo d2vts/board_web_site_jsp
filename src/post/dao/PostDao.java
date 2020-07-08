@@ -95,35 +95,35 @@ public class PostDao {
 		return new Date(timestamp.getTime());
 	}
 
-	public PostInfo ReadByPostId(Connection conn, int postId) throws SQLException{
+	public PostInfo ReadByPostId(Connection conn, int postId) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		try{
+		try {
 			pstmt = conn.prepareStatement("SELECT * FROM jspboard WHERE post_id=?");
 			pstmt.setInt(1, postId);
 			rs = pstmt.executeQuery();
 			PostInfo postinfo = null;
-			if(rs.next()) {
+			if (rs.next()) {
 				postinfo = rsToPostInfoObject(rs);
 			}
 			return postinfo;
-		}finally {
+		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
 	}
 
-	public void increaseView(Connection conn, int postId) throws SQLException{
-		try(PreparedStatement pstmt = conn.prepareStatement("UPDATE jspboard SET views = views + 1 WHERE post_id = ?")){
+	public void increaseView(Connection conn, int postId) throws SQLException {
+		try (PreparedStatement pstmt = conn
+				.prepareStatement("UPDATE jspboard SET views = views + 1 WHERE post_id = ?")) {
 			pstmt.setInt(1, postId);
 			pstmt.executeUpdate();
 		}
 	}
-	
-	
-	/*
-	private int update(Connection conn, int num, String title, String content) throws SQLException {
-		try (PreparedStatement pstmt = conn.prepareStatement("UPDATE jspboard SET title = ?,content =?, mod_date = now() where post_id=?")) {
+
+	public int update(Connection conn, int num, String title, String content) throws SQLException {
+		try (PreparedStatement pstmt = conn
+				.prepareStatement("UPDATE jspboard SET title = ?,content =?, mod_date = now() where post_id=?")) {
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, num);
@@ -131,5 +131,13 @@ public class PostDao {
 			return pstmt.executeUpdate();
 		}
 	}
-	 */
+
+	public int delete(Connection conn, int num) throws SQLException {
+		try (PreparedStatement pstmt = conn.prepareStatement("DELETE FROM jspboard WHERE post_id=?")) {
+			pstmt.setInt(1, num);
+
+			return pstmt.executeUpdate();
+		}
+	}
+
 }

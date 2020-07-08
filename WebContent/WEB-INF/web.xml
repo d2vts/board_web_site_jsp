@@ -48,6 +48,9 @@
 	<filter-name>LoginCheckFilter</filter-name>
 	<url-pattern>/mypage.do</url-pattern>
 	<url-pattern>/write.do</url-pattern>
+	<url-pattern>/update.do</url-pattern>
+	<url-pattern>/delete.do</url-pattern>
+	
 	
 	</filter-mapping>
 	<!--  LoginCheckFilter Settings End -->

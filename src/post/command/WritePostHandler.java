@@ -45,7 +45,7 @@ public class WritePostHandler implements CommandHandler{
 		
 		postService.write(writeReq); //  테스트한번해봄
 		
-		return WRITE_POST_SUCCESS;
+		return "/list.do";
 		
 	}
 	

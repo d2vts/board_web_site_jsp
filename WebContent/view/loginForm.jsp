@@ -7,6 +7,7 @@
 <title>LoginPage</title>
 </head>
 <body>
+<a href="/board/index.do">메인화면으로 가기</a>
 	<form action="login.do" method="post">
 		<c:if test="${errors.discord}">아이디 나 비밀번호가 일치하지 않습니다.</c:if>
 		<p>

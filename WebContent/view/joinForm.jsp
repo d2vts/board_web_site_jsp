@@ -7,6 +7,7 @@
 <title>JoinForm</title>
 </head>
 <body>
+<a href="/board/index.do">메인화면으로 가기</a>
 	<form action="join.do" method="post">
 		<p>
 			아이디 : <input type="text" name="id" value="${param.id}">

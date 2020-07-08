@@ -51,15 +51,7 @@ public class ControllerUsingURI extends HttpServlet { // HttpServlet 을 상속�
 			
 			String command = (String) keyIter.next(); //프로퍼티 이름을 커맨드 이름으로 사용한다.
 			
-			
-			System.out.println(" ||| 등록되어 있는 command 확인합니다 ||| " + command);
-			
-			/*
-			 ||| 등록되어 있는 command 확인합니다 ||| /changePW.do
- 		     ||| 등록되어 있는 command 확인합니다 ||| /login.do
- 			 ||| 등록되어 있는 command 확인합니다 ||| /join.do
- 			 ||| 등록되어 있는 command 확인합니다 ||| /logout.do
-			*/
+			System.out.println(" ControllerUsingURI에서 등록되어 있는 command 확인합니다 [ " + command + " ] ");
 			
 			String handlerClassName = prop.getProperty(command); // 커맨드 이름에 해당하는 핸들러 클래스 이름을 Properties에서 구한다.
 			try {

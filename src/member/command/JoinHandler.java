@@ -51,7 +51,7 @@ public class JoinHandler implements CommandHandler { // CommandHandler 구현
 		
 		try {
 			joinService.join(joinReq); //JoinService의 join()실행. 가입 처리에 성공하면 FORM_VIEW가 아닌 가입성공을 보여주는 페이지경로 리턴
-			return "/view/joinSuccess.jsp";
+			return "/index.do";
 		} catch (DuplicatedIdException e) {
 			errors.put("duplicatedId", Boolean.TRUE);// 동일한 아이디로 가입한 회원 존재하면 중복익셉션 발생해서 errors에 duplicatedID키 추가하고 폼보여주는 뷰 리턴
 			return FORM_VIEW;

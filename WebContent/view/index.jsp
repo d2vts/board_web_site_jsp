@@ -7,7 +7,7 @@
 <title>JSP INDEX</title>
 </head>
 <body>
-
+	<h1>메인화면 입니다.</h1>
 	<!-- 로그인상태-->
 	<c:if test="${! empty loginUser}">
 ${loginUser.name}님, 환영합니다.
@@ -15,7 +15,7 @@ ${loginUser.name}님, 환영합니다.
 			<a href="/board/logout.do"> 로그아웃 </a>
 		</p>
 		<p>
-			<a href="/board/view/mypage.jsp"> 마이페이지 </a>
+			<a href="/board/mypage.do"> 마이페이지 </a>
 		</p>
 	</c:if>
 	<!-- 로그인상태 -->
@@ -32,7 +32,8 @@ ${loginUser.name}님, 환영합니다.
 	<!-- 비로그인 상태-->
 
 	<p>
-		<a href="/board/write.do ">게시글 작성</a>
+		<a href="/board/write.do">게시글 작성</a> <a href="/board/list.do">게시판
+			보기</a>
 	</p>
 
 </body>

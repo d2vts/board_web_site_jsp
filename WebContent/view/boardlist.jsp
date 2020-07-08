@@ -7,7 +7,7 @@
 <title>게시글 목록</title>
 </head>
 <body>
-
+	<a href="/board/index.do">메인화면으로 가기</a>
 	<table border="1">
 		<tr>
 			<th>번호</th>
@@ -40,15 +40,16 @@
 			<tr>
 				<td colspan="4"><c:if
 						test="${postPaging.startPage > postPaging.pagecount}">
-						<a href="list.do?pageNo=${postPaging.startPage - postPaging.pagecount}"> [ 이전 ] </a>
-					</c:if>
-					
-					<c:forEach var="pageNums" begin="${postPaging.startPage}" end="${postPaging.endPage}">
+						<a
+							href="list.do?pageNo=${postPaging.startPage - postPaging.pagecount}">
+							[ 이전 ] </a>
+					</c:if> <c:forEach var="pageNums" begin="${postPaging.startPage}"
+						end="${postPaging.endPage}">
 						<a href="list.do?pageNo=${pageNums}">[ ${pageNums} ]</a>
-					</c:forEach>
-					
-					<c:if test="${postPaging.endPage < postPaging.totalPage}">
-						<a href="list.do?pageNo=${postPaging.startPage + postPaging.pagecount}"> [ 다음 ] </a>
+					</c:forEach> <c:if test="${postPaging.endPage < postPaging.totalPage}">
+						<a
+							href="list.do?pageNo=${postPaging.startPage + postPaging.pagecount}">
+							[ 다음 ] </a>
 					</c:if></td>
 			</tr>
 		</c:if>
