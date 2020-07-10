@@ -50,6 +50,7 @@
 	<url-pattern>/write.do</url-pattern>
 	<url-pattern>/update.do</url-pattern>
 	<url-pattern>/delete.do</url-pattern>
+	<url-pattern>/withdrawal.do</url-pattern>
 	
 	
 	</filter-mapping>

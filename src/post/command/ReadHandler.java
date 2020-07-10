@@ -30,7 +30,7 @@ public class ReadHandler implements CommandHandler {
 			if(reply!=null)
 			req.setAttribute("reply", reply);
 			
-			System.out.println("reply getwriterid : " + reply.get(1).getWriterId());
+
 			
 			return "/view/readPost.jsp";
 		} catch (postNotFoundException e) {

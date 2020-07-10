@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class IndexHandler implements CommandHandler{
 
+	
+	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) {
 	return "/view/index.jsp";

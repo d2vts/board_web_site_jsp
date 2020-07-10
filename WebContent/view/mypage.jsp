@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +9,8 @@
 <a href="/board/index.do">메인화면으로 가기</a>
 <h1>마이페이지</h1>
 
-<a href="/board/changePW.do"> 비밀번호 변경 </a>
+<p><a href="/board/changePW.do"> 비밀번호 변경 </a>
+
+<p><a href="/board/withdrawal.do"> 회원 탈퇴 </a>
 </body>
 </html>
