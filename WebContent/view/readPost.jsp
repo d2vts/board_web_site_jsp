@@ -8,53 +8,98 @@
 <head>
 <meta charset="UTF-8">
 <title>게시물 보기</title>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Roboto&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap css file -->
+	<link rel="stylesheet" type="text/css" href="/board/view/css/bootstrap.min.css">
+
+	<!-- font awesome icons -->
+	<link rel="stylesheet" type="text/css" href="/board/view/css/all.min.css">
+
+	<!-- custom css file -->
+	<link rel="stylesheet" type="text/css" href="/board/view/css/style.css">
 </head>
 <body>
-	<a href="/board/index.do">메인화면으로 가기</a>
-	<table border="1" style="border: 1px solid gray; width: 95%">
+<header class="header_area">
+		<div class="main-menu">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="/board/index.do">D2VTS</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<a class="nav-link" href="/board/index.do">Home <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/board/list.do">Board</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://github.com/d2vts/board_web_site_jsp">GIT HUB</a>
+						</li>
+					</ul>
+				</div>
+				<div class="mr-auto nav-item active .navbar-expand-lg">
 
-		<tr>
-			<td>게시 번호</td>
-			<td>${postinfo.postId}</td>
-		</tr>
-		<tr>
-			<td>작성자</td>
-			<td>${postinfo.writerName}</td>
-		</tr>
-		<tr>
-			<td>제목</td>
-			<td><c:out value='${postinfo.postTitle}' /></td>
-		</tr>
-		<tr>
-			<td>내용</td>
-			<%-- <td>${postinfo.postContent}</td> --%>
-			<td><u:pre value='${postinfo.postContent}' /></td>
-		</tr>
-		<tr>
-			<td colspan="2"><c:set var="pageNo"
-					value="${empty param.pageNo ? '1' : param.pageNo}" /> <a
-				href="list.do?pageNo=${pageNo}">목록</a> <c:if
+
+					<!-- =====================로그인 상태===================== -->
+					<c:if test="${! empty loginUser}">
+						<ul class="navbar-nav">
+							<li class="nav-item"><a class="nav-link nav-link2" href="/board/mypage.do">마이페이지</a></li>
+							<li class="nav-item"><a class="nav-link nav-link2" href="/board/logout.do">로그아웃</a></li>
+						</ul>
+					</c:if>
+					<!-- =====================로그인 상태===================== -->
+
+
+
+					<!-- =====================비로그인 상태===================== -->
+
+					<c:if test="${empty loginUser}">
+						<ul class="navbar-nav">
+							<li class="nav-item"><a class="nav-link nav-link2" href="/board/join.do">회원가입</a></li>
+							<li class="nav-item"><a class="nav-link nav-link2" href="/board/login.do">로그인</a></li>
+						</ul>
+
+					</c:if>
+					<!-- =====================비로그인 상태===================== -->
+
+				</div>
+			</nav>
+
+		</div>
+	</header>
+	
+	<div class="blog-post outer-post">
+        <h2 class="blog-post-title"><c:out value='${postinfo.postTitle}' /></h2>
+        <p class="blog-post-meta"><span class="badge badge-info">${postinfo.postId}</span>&nbsp;<strong>${postinfo.writerName}</strong></p>
+		<div class="blog-post inner-post">
+		<textarea class="form-control" id="exampleFormControlTextarea1" rows="30" cols="100"name="content" readonly>${postinfo.postContent}</textarea>
+		</div>
+        
+		<c:set var="pageNo"	value="${empty param.pageNo ? '1' : param.pageNo}" />
+		<a href="list.do?pageNo=${pageNo}" class="badge badge-secondary">목록으로</a>
+				<c:if
 					test="${loginUser.id == postinfo.writerId}">
-					<a href="update.do?pid=${postinfo.postId}"> [ 수정 ] </a>
-					<a href="delete.do?pid=${postinfo.postId}"> [ 삭제 ] </a>
-				</c:if></td>
-		</tr>
-	</table>
-	<h2>댓글</h2>
+					<a href="update.do?pid=${postinfo.postId}" class="badge badge-warning">수정하기</a>
+					<a href="delete.do?pid=${postinfo.postId}" class="badge badge-danger">삭제하기</a>
+				</c:if>
+		</div>
+	
+	<h3 id="readpost-comment">Comment</h3>
 <c:if test="${! empty loginUser}">
-	<form action="reply.do" method="POST">
-		<table border="1">
+	<form class="reply-form" action="reply.do" method="POST"> <input type="hidden" name="pid" value="${postinfo.postId}">
+		
 
-			<tr>
-				<td><textarea rows="5" cols="50" name="content"
-						placeholder="댓글을 입력하세요"></textarea></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="댓글 작성"></td>
-			</tr>
+			<textarea class="form-control comment-textarea"rows="5" cols="50" name="content"
+						placeholder="댓글을 입력하세요"></textarea>
+		
+		<button type="submit" class="btn btn-primary btn-lg btn-block">댓글 작성</button>
 			
-		</table>
-		<input type="hidden" name="pid" value="${postinfo.postId}">
+		
+		
 	</form>
 	</c:if>
 	
@@ -65,20 +110,15 @@
 
 
 	<c:forEach var="rp" items="${reply}">
-		<table border="1">
-			<tr>
-				<td>글쓴이</td>
-				  <td>${rp.writerId}</td> 
-			</tr>
-			<tr>
-			<td colspan="2"><fmt:formatDate value="${rp.regDate}" pattern="yyyy-MM-dd"/></td> 
-			</tr>
-			<tr>
-				<td colspan="2">${rp.content}</td>
-			</tr>
-		</table>
+	<div class="comment-container">
+	<div class="c-wrtier-date"><h4>${rp.writerId}</h4><span class="badge badge-dark"><fmt:formatDate value="${rp.regDate}" pattern="yyyy년 MM월 dd일"/></span></div>
+	<div class= "c-content">${rp.content}</div>
+	</div>
 	</c:forEach>
-
+<!-- Jquery js file -->
+	<script src="/board/view/jquery.3.5.1.js"></script>
+	<!-- Bootstrap js file -->
+	<script src="/board/view/bootstrap.min.js"></script>
 
 </body>
 </html>

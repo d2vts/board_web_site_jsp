@@ -7,15 +7,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>JSP MAIN</title>
+	<!-- fonts file file -->
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Roboto&display=swap" rel="stylesheet">
 
 	<!-- Bootstrap css file -->
-	<link rel="stylesheet" type="text/css" href="/view/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/board/view/css/bootstrap.min.css">
 
 	<!-- font awesome icons -->
-	<link rel="stylesheet" type="text/css" href="/view/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/board/view/css/all.min.css">
 
 	<!-- custom css file -->
-	<link rel="stylesheet" type="text/css" href="/view/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/board/view/css/style.css">
 </head>
 
 <body>
@@ -29,7 +31,7 @@
 	<header class="header_area">
 		<div class="main-menu">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<a class="navbar-brand" href="#">D2VTS</a>
+				<a class="navbar-brand" href="/board/index.do">D2VTS</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -43,7 +45,7 @@
 							<a class="nav-link" href="/board/list.do">Board</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="https://github.com/d2vts/board_web_site_jsp">GIT HUB</a>
+							<a class="nav-link" href="https://github.com/d2vts/board_web_site_jsp">GITHUB</a>
 						</li>
 					</ul>
 				</div>
@@ -106,7 +108,7 @@
 						</c:if>
 						<!-- =====================비로그인시===================== -->
 						<h1 class="title-text text-uppercase title-text2">게시판 사이트 BY JSP</h1>
-						<h4 class="title-text text-uppercase title-text3">BackEnd Developer_LEE TAE SEUNG</h4>
+						<h4 class="title-text text-uppercase title-text3">Web Developer_LEE TAE SEUNG</h4>
 						<div class="site-buttons">
 							<div class="d-flex flex-row flex-wrap">
 								<button class="btn button primary-button mr-4 text-uppercase">github</button>
@@ -114,7 +116,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12"><img src="/view/img/banner/index_banner.jpg" alt="banner-img"
+					<div class="col-lg-6 col-md-12"><img src="/board/view/img/banner/index_banner.jpg" alt="banner-img"
 							class="img-fluid"></div>
 				</div>
 			</div>
@@ -148,9 +150,9 @@
 	</footer>
 
 <!-- Jquery js file -->
-	<script src="/view/js/jquery.3.5.1.js"></script>
+	<script src="/board/view/jquery.3.5.1.js"></script>
 	<!-- Bootstrap js file -->
-	<script src="/view/js/bootstrap.min.js"></script>
+	<script src="/board/view/bootstrap.min.js"></script>
 </body>
 
 </html>

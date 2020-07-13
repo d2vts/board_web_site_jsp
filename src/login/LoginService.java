@@ -16,7 +16,7 @@ public class LoginService {
 			Member member = memberDao.selectById(conn, id);
 			if(member == null) 	throw new LoginFailException();
 			if(!member.matchPassword(password)) throw new LoginFailException();
-			return new User(member.getId(), member.getName());
+			return new User(member.getId(), member.getPassword());
 		}catch(SQLException e) {
 			throw new RuntimeException(e);
 		}

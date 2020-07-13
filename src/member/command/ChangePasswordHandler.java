@@ -29,7 +29,7 @@ public class ChangePasswordHandler implements CommandHandler{
 	private String processForm(HttpServletRequest req, HttpServletResponse res) { return FORM_VIEW;}
 	
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res)throws Exception{
-		User user = (User)req.getSession().getAttribute("LoginUser");
+		User user = (User)req.getSession().getAttribute("loginUser");
 		
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
@@ -40,17 +40,14 @@ public class ChangePasswordHandler implements CommandHandler{
 		if(curPW==null||curPW.isEmpty()) errors.put("curPW",Boolean.TRUE);
 		if(newPW==null||newPW.isEmpty()) errors.put("newPW",Boolean.TRUE);
 		if(!errors.isEmpty()) return FORM_VIEW;
-		
-		
 		try {
-			changePWsvc.changePassword(user.getId(), curPW, newPW);
-			return "/view/mypage.jsp";
+			return "/mypage.do";
 		}catch(NotMatchCurrentPasswordException nmcpe) {
 			errors.put("notMatchCurPW", Boolean.TRUE);
 			return FORM_VIEW;
 		}catch(MemberNotFoundException mbfe) {
 			res.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return null;
+			return FORM_VIEW;
 		}
 	}
 }

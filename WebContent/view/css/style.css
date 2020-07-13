@@ -1,10 +1,10 @@
 /* fonts.css file */
-@import url(/view/css/fonts.css);
+@import url(./fonts.css);
 
 /* css var */
 @import url(./partials/_variables.css);
 
-/* navigation start */
+/* ********************* index.jsp css start ********************* */
 
 .header_area .main-menu .navbar .navbar-brand{
 
@@ -150,3 +150,123 @@ background-clip: text;
     color:#854fee;
     text-decoration: none;
    }
+   
+   /* ********************* index.jsp css end ********************* */
+   
+   /* ********************* joinForm.jsp css start ********************* */
+   
+   #join-form{
+   padding: 5%;
+   margin-left : 10%;
+   margin-right : 10%;
+   }
+   
+   #join-form #emailHelp{
+   color: red;}
+   
+   #join-form button{
+   background: #4458dc;
+   }
+ 
+   /* ********************* joinForm.jsp css end ********************* */
+   
+    /* ********************* loginForm.jsp css start ********************* */
+    #login-form{
+    padding-top:10rem;
+    width : 15rem;
+   margin: 0 auto;
+    }
+    #nmip{
+    color:red;
+    }
+    
+     /* ********************* loginForm.jsp css end ********************* */
+     
+     /* ********************* boradlist.jsp css start ********************* */
+     
+     #board-table-list{
+     text-decoration: none;
+     color: black;}
+     
+     #list-write-btn{
+     background: var(--gradient-color);
+     }
+     
+     /* ********************* boradlist.jsp css end ********************* */
+     
+     /* ********************* changePWForm.jsp css start ********************* */
+     
+    						 /* login-form 여러 jsp 에서 폼 공유 */
+     
+     /* ********************* changePWForm.jsp css end ********************* */
+     /* ********************* withdrawal.jsp css start ********************* */
+     
+     #withdrawal-h2{
+     font-weight: 500;
+     padding-top:5%;
+     text-align: center;
+     font-family: var(--DoHyeon);
+     }
+     /* ********************* withdrawal.jsp css end ********************* */
+     
+     /* ********************* readPost.jsp css start ********************* */
+     
+     .outer-post{
+     padding: 5%;
+     }
+     
+     .inner-post{
+     min-height: 20rem;
+     background:whitesmoke;
+     }
+     
+     #readpost-comment{
+     margin :5%;
+     }
+     
+     .comment-textarea{
+     width: 90%;
+     margin: 5%;
+     }
+     
+     .reply-form .btn{
+     background: var(--gradient-color);
+     width: 90%;
+     margin: 5%;
+     }
+     
+     .comment-container{
+     
+     padding: 5%;
+     }
+     /* ********************* readPost.jsp css end ********************* */
+     
+     
+     /* ********************* deleteConfirm.jsp css start ********************* */
+     
+     
+     .delete-confirm-back{
+     text-decoration: none;
+     }
+      .delete-confirm-back:hover{
+      font-weight:bold;
+      color: gray;
+      text-decoration: none;
+      }
+   
+   /* ********************* deleteConfirm.jsp css end ********************* */
+   
+   
+   /* ********************* mypage.jsp css start ********************* */
+   
+   .mypage-div{
+   margin:2%;
+   font-family: var(--DoHyeon);
+   text-align:center;
+   }
+   
+   
+   
+   
+   /* ********************* mypage.jsp css end ********************* */
+   

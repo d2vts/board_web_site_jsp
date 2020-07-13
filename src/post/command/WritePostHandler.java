@@ -14,7 +14,6 @@ import post.service.WriteRequest;
 public class WritePostHandler implements CommandHandler{
 
 	private static final String WRITE_POST_FORM_VIEW = "/view/writePostForm.jsp";
-	private static final String WRITE_POST_SUCCESS = "/view/temporary_successPage.jsp";
 	private WritePostService postService = new WritePostService();
 	
 	@Override
@@ -43,7 +42,7 @@ public class WritePostHandler implements CommandHandler{
 		writeReq.validate(errors);
 		if(!errors.isEmpty()) return WRITE_POST_FORM_VIEW;
 		
-		postService.write(writeReq); //  테스트한번해봄
+		postService.write(writeReq);
 		
 		return "/list.do";
 		
