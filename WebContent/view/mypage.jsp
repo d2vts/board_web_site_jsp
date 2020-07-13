@@ -8,13 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Roboto&display=swap" rel="stylesheet">
 
 	<!-- Bootstrap css file -->
-	<link rel="stylesheet" type="text/css" href="/view/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/board/view/css/bootstrap.min.css">
 
 	<!-- font awesome icons -->
-	<link rel="stylesheet" type="text/css" href="/view/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/board/view/css/all.min.css">
 
 	<!-- custom css file -->
-	<link rel="stylesheet" type="text/css" href="/view/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/board/view/css/style.css">
 </head>
 <body>
 <header class="header_area">

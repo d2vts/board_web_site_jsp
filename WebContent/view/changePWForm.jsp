@@ -10,8 +10,7 @@
 	rel="stylesheet">
 
 <!-- Bootstrap css file -->
-<link rel="stylesheet" type="text/css"
-	href="/view/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/board/view/css/bootstrap.min.css">
 
 <!-- font awesome icons -->
 <link rel="stylesheet" type="text/css" href="/board/view/css/all.min.css">
