@@ -22,7 +22,7 @@
 
 <body>
 	<!-- =====================TOP BAR===================== -->
-	<div class="top-bar"> <a href="#" class="top-bar-a">GO TOP</a></div>
+	<!-- <div class="top-bar"> <a href="#" class="top-bar-a">GO TOP</a></div> -->
 	<!-- =====================TOP BAR===================== -->
 
 
@@ -107,12 +107,12 @@
 							<h3 class="title-text title-text1">방문해주셔서 감사합니다.</h3>
 						</c:if>
 						<!-- =====================비로그인시===================== -->
-						<h1 class="title-text text-uppercase title-text2">게시판 사이트 BY JSP</h1>
-						<h4 class="title-text text-uppercase title-text3">Web Developer_LEE TAE SEUNG</h4>
+						<h1 class="title-text text-uppercase title-text2">게시판 사이트 BY JSP</h1><br/><br/><br/>
+						<h4 class="title-text text-uppercase title-text3">다른 게시판 사이트 보기</h4>
 						<div class="site-buttons">
 							<div class="d-flex flex-row flex-wrap">
-								<button class="btn button primary-button mr-4 text-uppercase">github</button>
-								<button class="btn button secondary-button mr-4 text-uppercase">Contact</button>
+								<button class="btn button primary-button mr-4 text-uppercase" onclick="location.href='https://whispering-hollows-64070.herokuapp.com/'">Nodejs</button>
+								<button class="btn button secondary-button mr-4 text-uppercase" onclick="location.href='https://ts-spring-web-board.herokuapp.com/'">Spring</button>
 							</div>
 						</div>
 					</div>
@@ -133,10 +133,8 @@
 				</div>
 				<div class="social text-center">
 					<h5 class="text-uppercase">Contact Me</h5>
-					<a href="#"><i class="fab fa-github"></i></a>
-					<a href="#"><i class="fab fa-instagram"></i></a>
-					<a href="#"><i class="fab fa-youtube"></i></a>
-					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="https://github.com/d2vts/board_web_site_jsp" style="color: black"><i class="fab fa-github"></i></a>
+					<a href="#" style="color: red"><i class="fab fa-youtube"></i></a>
 				</div>
 				<div class="copyrights text-center">
 					<p class="para">

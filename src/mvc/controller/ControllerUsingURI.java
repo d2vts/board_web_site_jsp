@@ -50,14 +50,10 @@ public class ControllerUsingURI extends HttpServlet { // HttpServlet 을 상속�
 
 		// System.out.println("keyIter의 값은 : " + keyIter); keyIter의 값은 :
 		// java.util.Hashtable$Enumerator@6d1112eb
-
 		// .keySet() : key값만 가져옴
 		while (keyIter.hasNext()) { // 해당 이터레이션(iteration)이 다음 요소를 가지고 있으면 true를 반환하고, 더 이상 다음 요소를 가지고 있지 않으면 false를
 									// 반환.
-
 			String command = (String) keyIter.next(); // 프로퍼티 이름을 커맨드 이름으로 사용한다.
-
-			
 			System.out.println("static file path find : ");
 			System.out.println(" ControllerUsingURI에서 등록되어 있는 command 확인합니다 [ " + command + " ] ");
 
@@ -73,16 +69,13 @@ public class ControllerUsingURI extends HttpServlet { // HttpServlet 을 상속�
 			}
 		}
 	}
-
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		process(request, response);
 	}
-
 	private void process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String command = request.getRequestURI(); // URI를 명령어로 사용하기 위해 String 타입의 command에 저장

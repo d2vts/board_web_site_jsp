@@ -16,7 +16,6 @@ public class WriteRequest {
 		this.content = content;
 	}
 	
-	
 	public String getWriterName() {	
 		return writerName;
 	}

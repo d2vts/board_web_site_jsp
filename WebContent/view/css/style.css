@@ -212,7 +212,7 @@ background-clip: text;
      /* ********************* readPost.jsp css start ********************* */
      
      .outer-post{
-     padding: 5%;
+     padding: 2%;
      }
      
      .inner-post{
@@ -221,23 +221,23 @@ background-clip: text;
      }
      
      #readpost-comment{
-     margin :5%;
+     margin :2%;
      }
      
      .comment-textarea{
      width: 90%;
-     margin: 5%;
+     margin: 2%;
      }
      
      .reply-form .btn{
      background: var(--gradient-color);
      width: 90%;
-     margin: 5%;
+     margin: 2%;
      }
      
      .comment-container{
      
-     padding: 5%;
+     padding: 2%;
      }
      /* ********************* readPost.jsp css end ********************* */
      

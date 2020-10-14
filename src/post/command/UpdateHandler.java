@@ -67,7 +67,6 @@ public class UpdateHandler implements CommandHandler {
 		//-----------------------------------------------
 		
 		
-		
 		UpdateRequest updateReq = new UpdateRequest(loginUser.getId(), Integer.parseInt(req_pid), req.getParameter("title"), req.getParameter("content"));
 		req.setAttribute("updateReq", updateReq);
 		
