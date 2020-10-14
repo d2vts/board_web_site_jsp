@@ -46,8 +46,7 @@ public class ControllerUsingURI extends HttpServlet { // HttpServlet 을 상속�
 		} catch (IOException e) {
 			throw new ServletException(e);
 		}
-		Iterator keyIter = prop.keySet().iterator();// Iterator 인터페이스의 객체로 keyIter 객체 생성후 Properties에 저장되어있는 값을 keyIter에
-													// 저장
+		Iterator<?> keyIter = prop.keySet().iterator();// Iterator 인터페이스의 객체로 keyIter 객체 생성후 Properties에 저장되어있는 값을 keyIter에 저장
 
 		// System.out.println("keyIter의 값은 : " + keyIter); keyIter의 값은 :
 		// java.util.Hashtable$Enumerator@6d1112eb

@@ -20,7 +20,7 @@ public class ListHandler implements CommandHandler {
 			i_reqPageNum = Integer.parseInt(s_reqPageNum);
 
 		postPagination postPaging = listService.getPostPage(i_reqPageNum);
-
+							
 		//test
 		System.out.println("postPaging 값 ");
 		System.out.println("currentPage : " + postPaging.getCurrentPage());

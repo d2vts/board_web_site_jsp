@@ -17,7 +17,7 @@ public class WriteRequest {
 	}
 	
 	
-	public String getWriterName() {
+	public String getWriterName() {	
 		return writerName;
 	}
 	

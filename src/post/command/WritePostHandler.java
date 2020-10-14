@@ -38,6 +38,7 @@ public class WritePostHandler implements CommandHandler{
 		req.setAttribute("errors", errors);
 		
 		User user = (User)req.getSession(false).getAttribute("loginUser"); // getSession() 괄호 안에 true 면없을시 새로운 세션 생성하는것임 그래서 없을시 null을 리턴하는 false를 파라미터값으로 준것
+		System.out.println("WritePostHandler - 세션에서 받아온 유저 정보 : " + user);
 		WriteRequest writeReq = createWriteRequest(user, req);
 		writeReq.validate(errors);
 		if(!errors.isEmpty()) return WRITE_POST_FORM_VIEW;

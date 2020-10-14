@@ -38,7 +38,8 @@ public class MemberDao {
 
 	public void insert(Connection conn, Member member) throws SQLException { // SQL INSERT 문을 진행하는 메소드
 		//다른 클래스에서 인스턴스 생성후 이 메소드를 이용하여 삽입쿼리를 진행 할 수있게 함
-		try (PreparedStatement pstmt = conn.prepareStatement("INSERT INTO members VALUES(?,?,?,?)")) {
+		
+		try (PreparedStatement pstmt = conn.prepareStatement("INSERT INTO members(memberid, name, password, regdate) VALUES(?,?,?,?)")) {
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getName());
 			pstmt.setString(3, member.getPassword());

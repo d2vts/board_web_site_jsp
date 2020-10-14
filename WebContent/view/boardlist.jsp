@@ -113,7 +113,7 @@
 	<nav aria-label="Page navigation example">
 				<ul class="pagination justify-content-center">
 				<c:if test="${postPaging.startPage > postPaging.pagecount}">
-					<li class="page-item disabled"><a class="page-link" href="list.do?pageNo=${postPaging.startPage - postPaging.pagecount}"
+					<li class="page-item"><a class="page-link" href="list.do?pageNo=${postPaging.startPage - postPaging.pagecount}"
 					tabindex="-1" aria-disabled="true">Previous</a></li>
 					</c:if>
 					<c:forEach var="pageNums" begin="${postPaging.startPage}" end="${postPaging.endPage}">
@@ -125,7 +125,6 @@
 				</ul>
 			</nav>
 			</c:if>
-			
 			<!-- Jquery js file -->
 	<script src="/board/view/jquery.3.5.1.js"></script>
 	<!-- Bootstrap js file -->
